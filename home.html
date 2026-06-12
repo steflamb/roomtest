@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nerfstudio Room Test</title>
+
+  <!-- model-viewer renders .glb / .gltf files. Export your Nerfstudio mesh as GLB. -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"></script>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #111;
+      color: white;
+    }
+
+    .page {
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    header,
+    footer {
+      padding: 0.85rem 1rem;
+      background: rgba(0, 0, 0, 0.72);
+      z-index: 2;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    header p,
+    footer p {
+      margin: 0.25rem 0 0;
+      font-size: 0.85rem;
+      color: #cfcfcf;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      min-height: 70vh;
+      background: radial-gradient(circle at center, #333 0%, #111 70%);
+    }
+
+    .hint {
+      position: fixed;
+      right: 1rem;
+      bottom: 4.25rem;
+      max-width: 280px;
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.72);
+      font-size: 0.85rem;
+      line-height: 1.35;
+      z-index: 3;
+    }
+
+    code {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      padding: 0.08rem 0.25rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Nerfstudio Room Viewer</h1>
+      <p>Testing a GLB room export with &lt;model-viewer&gt; on GitHub Pages.</p>
+    </header>
+
+    <!--
+      Put your exported model next to this file and name it room.glb,
+      or change src="room.glb" to your actual model path.
+
+      Example repo layout:
+        /home.html
+        /room.glb
+    -->
+    <model-viewer
+      src="room.glb"
+      alt="3D reconstruction of a room"
+      camera-controls
+      touch-action="pan-y"
+      auto-rotate
+      rotation-per-second="20deg"
+      shadow-intensity="1"
+      exposure="1"
+      field-of-view="70deg"
+      min-camera-orbit="auto auto 0.5m"
+      max-camera-orbit="auto auto 50m"
+      camera-orbit="0deg 75deg 4m">
+
+      <div slot="poster" class="hint">
+        Loading <code>room.glb</code>…
+      </div>
+
+      <div slot="error" class="hint">
+        Could not load <code>room.glb</code>. Check that the file exists, is committed to GitHub, and the filename case matches exactly.
+      </div>
+    </model-viewer>
+
+    <footer>
+      <p>Drag to orbit, scroll/pinch to zoom. For Nerfstudio NeRFs, export or convert a mesh to <code>.glb</code> first.</p>
+    </footer>
+  </main>
+</body>
+</html>
