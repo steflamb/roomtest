@@ -89,26 +89,11 @@
         /room.glb
     -->
     <model-viewer
-      src="room.glb"
-      alt="3D reconstruction of a room"
+      src="https://huggingface.co/datasets/steflamb22/fortunacar/resolve/main/room.glb"
       camera-controls
-      touch-action="pan-y"
       auto-rotate
-      rotation-per-second="20deg"
       shadow-intensity="1"
-      exposure="1"
-      field-of-view="70deg"
-      min-camera-orbit="auto auto 0.5m"
-      max-camera-orbit="auto auto 50m"
-      camera-orbit="0deg 75deg 4m">
-
-      <div slot="poster" class="hint">
-        Loading <code>room.glb</code>…
-      </div>
-
-      <div slot="error" class="hint">
-        Could not load <code>room.glb</code>. Check that the file exists, is committed to GitHub, and the filename case matches exactly.
-      </div>
+      exposure="1">
     </model-viewer>
 
     <footer>
